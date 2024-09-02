@@ -4712,25 +4712,3 @@
     </thumbnail>
   </thumbnails>
 </workbook>
-# Redirects from what the browser requests to what we serve
-/home                /
-/blog/my-post.php    /blog/my-post
-/news                /blog
-/cuties              https://www.petsofnetlify.com
-/authors/c%C3%A9line /authors/about-c%C3%A9line
-[[redirects]]
-  from = "/old-path"
-  to = "/new-path"
-  status = 301
-  force = false
-  query = {path = ":path"}
-  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
-
-## This rule redirects to an external API, signing requests with a secret
-[[redirects]]
-  from = "/search"
-  to = "https://api.mysearch.com"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
